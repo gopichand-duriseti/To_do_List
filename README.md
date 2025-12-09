@@ -1,26 +1,17 @@
-# To-Do Application (Python CLI)
+# To-Do Application
 
-A simple command-line To-Do app using Python. Stores tasks in a CSV file.
+A Python CLI program that lets you manage daily tasks using a simple menu system.
+All tasks are saved in a CSV file and duplicate entries are prevented.
 
-## Features
-- Add tasks
-- Remove tasks
-- View tasks
-- Modify tasks
-- Prevents duplicates
-- Saves to tasks.csv
+## Functions
+- Add a new task
+- Remove an existing task
+- Edit an existing task
+- Display all tasks in numbered order
 
-## How to Run
+## Usage
 python to_do.py
 
-## File Structure
-to_do.py
+## Files
+to_do.py  
 tasks.csv
-README.md
-
-## Menu
-1. Add Task
-2. Remove Task
-3. View Tasks
-4. Modify Task
-5. Exit
