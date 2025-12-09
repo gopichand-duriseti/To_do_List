@@ -2,7 +2,6 @@ import os
 
 FILE = "tasks.csv"
 
-# Load tasks
 def load_tasks():
     if not os.path.exists(FILE):
         with open(FILE, "w") as f:
@@ -12,24 +11,20 @@ def load_tasks():
     with open(FILE, "r") as f:
         lines = f.readlines()
 
-    return [line.strip() for line in lines[1:]]  # skip header
+    return [line.strip() for line in lines[1:]]  
 
-# Save tasks
 def save_tasks(tasks):
     with open(FILE, "w") as f:
-        f.write("TASKS\n")   # this becomes the header in Excel
+        f.write("TASKS\n")   
         for t in tasks:
             f.write(t + "\n")
 
-
-
-# Add task
 def add(task):
     tasks.append(task)
     save_tasks(tasks)
     return f"'{task}' added successfully!"
 
-# Remove task
+
 def remove(task):
     if task in tasks:
         tasks.remove(task)
@@ -37,13 +32,11 @@ def remove(task):
         return f"'{task}' removed!"
     return f"'{task}' not found!"
 
-# View tasks
 def view():
     if not tasks:
         return "No tasks found."
     return "\n".join(f"{i+1}. {t}" for i, t in enumerate(tasks))
 
-# Modify task
 def modify(task):
     if task not in tasks:
         print(f"'{task}' not found!")
@@ -54,7 +47,7 @@ def modify(task):
     print(f"Updated: '{task}' → '{new}'")
 
 
-# ---------- MAIN PROGRAM ----------
+#MAIN CODE
 tasks = load_tasks()
 
 while True:
