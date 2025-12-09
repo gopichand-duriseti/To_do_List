@@ -14,15 +14,25 @@ def load_tasks():
     return [line.strip() for line in lines[1:]]  
 
 def save_tasks(tasks):
+    unique_tasks = list(dict.fromkeys(tasks))   # removes duplicates while keeping order
     with open(FILE, "w") as f:
-        f.write("TASKS\n")   
-        for t in tasks:
+        f.write("TASKS\n")
+        for t in unique_tasks:
             f.write(t + "\n")
 
+
 def add(task):
+    task = task.strip()
+    if task == "":
+        return "Empty task not allowed."
+    
+    if task in tasks:
+        return "Task already exists!"
+    
     tasks.append(task)
     save_tasks(tasks)
     return f"'{task}' added successfully!"
+
 
 
 def remove(task):
